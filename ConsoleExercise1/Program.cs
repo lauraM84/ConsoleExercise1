@@ -80,24 +80,23 @@ internal class Program
         countOccurences(args[0], args[1]);
     }
 
-    static void countOccurences(string word, string text)
+    static void CountOccurrences(string source, string value)
     {
+        var array = source.Split(' ');
         int count = 0;
-        int index = 0;
-        while ((index = text.IndexOf(word, index)) != -1)
+        foreach (var item in array)
         {
-            count++;
-            index += word.Length;
+            if (item.ToLower() == value.ToLower())
+            {
+                count++;
+            }
         }
-        Console.WriteLine($"La parola '{word}' appare {count} volte nel testo.");
-    }
+        Console.WriteLine($"la stringa '{value}' appare {(count == 1 ? "una" : count)} volt{(count == 1 ? "a" : "e")} nel testo: {source}");
+    
+    //{
+        //Console.WriteLine("Hello World!");
 
-
-    private static void PrintHelloWorld()
-    {
-        Console.WriteLine("Hello World!");
-
-    }
+    //}
 
     //esercizio 2 guess a number
     //saluta utente
