@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using ConsoleExercise1;
 
 internal class Program
@@ -62,6 +63,11 @@ internal class Program
         //stampa risultato esercizio fizzbuzz
         var fizzbuzz = new fizzbuzz();
         fizzbuzz.PrintNumber();
+
+       
+        //stampa risultato esercizio indovina numero
+        GuessNumber();  
+
     }
 
 
@@ -71,7 +77,42 @@ internal class Program
 
     }
 
-   
+
+    //saluta utente
+    //indovina numero da 1 a 10
+    //se indovina numero stampa "hai vinto"
+    //se numero più basso stampa "più alto"
+    //se numero più alto stampa "più basso"
+    //tentativi infiniti per indovinare
+
+
+    
+    private static void GuessNumber()
+    {
+        Console.WriteLine("Ciao! Indovina il numero da 1 a 10");
+        Random random = new Random();
+        int randomNumber = random.Next(1, 11);
+
+        while (true)
+        {
+            int number = int.Parse(Console.ReadLine());
+
+            if (number == randomNumber)
+            {
+                Console.WriteLine("Hai vinto!");
+                break; // esce dal ciclo
+            }
+            else if (number < randomNumber)
+            {
+                Console.WriteLine("Sbagliato, era più alto. Riprova!");
+            }
+            else
+            {
+                Console.WriteLine("Sbagliato, era più basso. Riprova!");
+            }
+        }
+    }
+
 }
 
 
@@ -82,8 +123,3 @@ internal class Program
 
 
 
-
-
-
-
-    
