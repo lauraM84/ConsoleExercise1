@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using ConsoleExercise1;
 
@@ -66,8 +67,29 @@ internal class Program
 
        
         //stampa risultato esercizio indovina numero
-        GuessNumber();  
+        GuessNumber();
 
+
+        //esercizio 3
+        // contare quante volte è contenuta la parola "pippo" nella stringa "pippo è buono, pippo è simpatico, pippo è meglio di topolino"
+        if (args.Length !=2) 
+        {
+            Console.WriteLine("inserire 2 argomenti");
+            return;
+        }
+        countOccurences(args[0], args[1]);
+    }
+
+    static void countOccurences(string word, string text)
+    {
+        int count = 0;
+        int index = 0;
+        while ((index = text.IndexOf(word, index)) != -1)
+        {
+            count++;
+            index += word.Length;
+        }
+        Console.WriteLine($"La parola '{word}' appare {count} volte nel testo.");
     }
 
 
@@ -77,7 +99,7 @@ internal class Program
 
     }
 
-
+    //esercizio 2 guess a number
     //saluta utente
     //indovina numero da 1 a 10
     //se indovina numero stampa "hai vinto"
@@ -113,10 +135,21 @@ internal class Program
         }
     }
 
+
+
 }
 
 
 //print tutti i numeri da 1 a 100, se divisibile per 7 diventa pippo, quadrato perfetto pluto, se entrambi paperone
+
+
+//esercizio 4: come 3 ma deve brendere un file (url)
+//numero occorrenze dando parola di cercare
+//non viene data parola da trovare ma conta numero parole, numero caratteri, numero vocali e numero consonanti
+//rifare csv-parser
+
+
+
 
 
 
